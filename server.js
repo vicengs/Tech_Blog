@@ -1,10 +1,10 @@
-/* ------------------------------ */
-/* Project  : Tech Blog           */
-/* File     : server.js           */
-/* Author   : Vicente Garcia      */
-/* Date     : 05/06/2022          */
-/* Modified : 05/06/2022          */
-/* ------------------------------ */
+/* ------------------------- */
+/* Project  : Tech Blog      */
+/* File     : server.js      */
+/* Author   : Vicente Garcia */
+/* Date     : 05/06/2022     */
+/* Modified : 05/06/2022     */
+/* ------------------------- */
 // Access to public files
 const path = require('path');
 // Access to express modules to route
@@ -29,11 +29,11 @@ const session = require('express-session');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 // Create session model atributes
 const sess = {
-    secret: 'Blog Session',
-    cookie: {},
-    resave: false,
-    saveUninitialized: true,
-    store: new SequelizeStore({
+    secret: 'Blog Session'
+   ,cookie: {}
+   ,resave: false
+   ,saveUninitialized: true
+   ,store: new SequelizeStore({
         db: sequelize
     })
 };

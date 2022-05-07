@@ -1,24 +1,35 @@
+/* ------------------------- */
+/* Project  : Tech Blog      */
+/* File     : post-routes.js */
+/* Author   : Vicente Garcia */
+/* Date     : 05/06/2022     */
+/* Modified : 05/06/2022     */
+/* ------------------------- */
+// Access to router module
 const router = require('express').Router();
-const sequelize = require('../../config/connection');
+// Access to helpers
 const withAuth = require('../../utils/auth');
-const { Post, User, Vote, Comment } = require('../../models');
-// get all users
+// Access to Post, User and Comment models
+const { Post, User, Comment } = require('../../models');
+// Route to get all posts
 router.get('/', (req, res) => {
+    // Access to Post model to get all posts
     Post.findAll({
-        attributes: ['id', 'post_url', 'title', 'created_at', [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']],
-        order: [['created_at', 'DESC']],
-        include: [
+        //attributes: ['id', 'post_url', 'title', 'created_at', [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']],
+        order: [['created_at', 'DESC']]
+        // JOIN to Post and Comment to get their fields
+       ,include: [
             {
-                model: Comment,
-                attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
-                include: {
-                    model: User,
-                    attributes: ['username']
+                model: Comment
+               ,attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at']
+               ,include: {
+                    model: User
+                   ,attributes: ['username']
                 }
             },
             {
-                model: User,
-                attributes: ['username']
+                model: User
+               ,attributes: ['username']
             }
         ]
     })
@@ -28,24 +39,26 @@ router.get('/', (req, res) => {
         res.status(500).json(err);
     });
 });
+// Route to get post by id
 router.get('/:id', (req, res) => {
+    // Access to Post model to get a post by id
     Post.findOne({
         where: {
             id: req.params.id
-        },
-        attributes: ['id', 'post_url', 'title', 'created_at', [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']],
-        include: [
+        }
+        //attributes: ['id', 'post_url', 'title', 'created_at', [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']],
+       ,include: [
             {
-                model: Comment,
-                attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
-                include: {
-                    model: User,
-                    attributes: ['username']
+                model: Comment
+               ,attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at']
+               ,include: {
+                    model: User
+                   ,attributes: ['username']
                 }
             },
             {
-            model: User,
-            attributes: ['username']
+                model: User
+               ,attributes: ['username']
             }
         ]
     })
@@ -61,36 +74,27 @@ router.get('/:id', (req, res) => {
         res.status(500).json(err);
     });
 });
+// Route to add a post
 router.post('/', withAuth, (req, res) => {
-    // expects {title: 'Taskmaster goes public!', post_url: 'https://taskmaster.com/press', user_id: 1}
+    // Access to Post model to create a post
     Post.create({
-        title: req.body.title,
-        post_url: req.body.post_url,
-        user_id: req.session.user_id
+        title: req.body.title
+       ,content_post: req.body.content_post
+       ,user_id: req.session.user_id
     })
     .then(dbPostData => res.json(dbPostData))
     .catch(err => {
-    console.log(err);
-    res.status(500).json(err);
+        console.log(err);
+        res.status(500).json(err);
     });
 });
-// PUT /api/posts/upvote
-router.put('/upvote', withAuth, (req, res) => {
-    if (req.session) {
-    // pass session id along with all destructured properties on req.body
-        // custom static method created in models/Post.js
-        Post.upvote({ ...req.body, user_id: req.session.user_id }, { Vote, Comment, User })
-        .then(updatedVoteData => res.json(updatedVoteData))
-        .catch(err => {
-            console.log(err);
-            res.status(500).json(err);
-        });
-    }
-});
+// Route to update a post
 router.put('/:id', withAuth, (req, res) => {
+    // Access to Post model to update a post
     Post.update(
         {
             title: req.body.title
+           ,content_post: req.body.content_post
         },
         {
             where: {
@@ -110,11 +114,11 @@ router.put('/:id', withAuth, (req, res) => {
         res.status(500).json(err);
     });
 });
+// Route to delete a post
 router.delete('/:id', withAuth, (req, res) => {
+    // Access to Post model to delete a post
     Post.destroy({
-        where: {
-            id: req.params.id
-        }
+        where: { id: req.params.id }
     })
     .then(dbPostData => {
         if (!dbPostData) {
@@ -128,4 +132,5 @@ router.delete('/:id', withAuth, (req, res) => {
         res.status(500).json(err);
     });
 });
+// Export module router
 module.exports = router;

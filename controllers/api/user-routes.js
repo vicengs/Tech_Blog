@@ -1,11 +1,19 @@
+/* ------------------------- */
+/* Project  : Tech Blog      */
+/* File     : user-routes.js */
+/* Author   : Vicente Garcia */
+/* Date     : 05/06/2022     */
+/* Modified : 05/06/2022     */
+/* ------------------------- */
+// Access to router module
 const router = require('express').Router();
+// Access to helpers
 const withAuth = require('../../utils/auth');
-const { User, Post, Vote, Comment } = require('../../models');
-
-// GET /api/users
+// Access to Post, User and Comment models
+const { User, Post, Comment } = require('../../models');
+// Route to get all users
 router.get('/', (req, res) => {
-    // Access our User model and run .findAll() method)
-
+    // Access to User model to get all users
     User.findAll({
         attributes: { exclude: ['password'] }
     })
@@ -15,30 +23,24 @@ router.get('/', (req, res) => {
         res.status(500).json(err);
     });
 });
-
-// GET /api/users/1
+// Route to get user by id
 router.get('/:id', (req, res) => {
+    // Access to User model to get a user by id
     User.findOne({
-        attributes: { exclude: ['password'] },
-        where: { id: req.params.id },
-        // replace the existing `include` with this
-        include: [{
-            model: Post,
-            attributes: ['id', 'title', 'post_url', 'created_at']
+        attributes: { exclude: ['password'] }
+       ,where: { id: req.params.id }
+        // JOIN to Post and Comment to get their fields
+       ,include: [{
+            model: Post
+           ,attributes: ['id', 'title', 'content_post', 'created_at']
         },
         {
-            model: Comment,
-            attributes: ['id', 'comment_text', 'created_at'],
-            include: {
-                model: Post,
-                attributes: ['title']
+            model: Comment
+           ,attributes: ['id', 'comment_text', 'created_at']
+           ,include: {
+                model: Post
+               ,attributes: ['title']
             }
-        },
-        {
-            model: Post,
-            attributes: ['title'],
-            through: Vote,
-            as: 'voted_posts'
         }
     ]
     })
@@ -55,13 +57,12 @@ router.get('/:id', (req, res) => {
     });
 });
 
-// POST /api/users
+// Route to add a user
 router.post('/', withAuth, (req, res) => {
-    // expects {username: 'Lernantino', email: 'lernantino@gmail.com', password: 'password1234'}
+    // Access to User model to create a user
     User.create({
-        username: req.body.username,
-        email: req.body.email,
-        password: req.body.password
+        username: req.body.username
+       ,password: req.body.password
     })
     .then(dbUserData => {
         req.session.save(() => {
@@ -76,22 +77,25 @@ router.post('/', withAuth, (req, res) => {
     res.status(500).json(err);
     });
 });
+// Route to log in user
 router.post('/login', (req, res) => {
+    // Access to User model to get a user by username
     User.findOne({
-        where: { email: req.body.email }
+        where: { username: req.body.username }
     })
     .then(dbUserData => {
         if (!dbUserData) {
-            res.status(400).json({ message: 'No user with that email address!' });
+            res.status(400).json({ message: 'No user found!' });
             return;
         }
+        // Validate password typed
         const validPassword = dbUserData.checkPassword(req.body.password);
         if (!validPassword) {
             res.status(400).json({ message: 'Incorrect password!' });
             return;
         }
         req.session.save(() => {
-            // declare session variables
+            // Declare session variables
             req.session.user_id = dbUserData.id;
             req.session.username = dbUserData.username;
             req.session.loggedIn = true;
@@ -99,7 +103,9 @@ router.post('/login', (req, res) => {
         });
     });
 });
+// Route to log out user
 router.post('/logout', withAuth, (req, res) => {
+    // Destroy session if exists
     if (req.session.loggedIn) {
         req.session.destroy(() => {
                 res.status(204).end();
@@ -109,16 +115,12 @@ router.post('/logout', withAuth, (req, res) => {
         res.status(404).end();
     }
 });
-// PUT /api/users/1
+// Route to update a user
 router.put('/:id', withAuth, (req, res) => {
-    // expects {username: 'Lernantino', email: 'lernantino@gmail.com', password: 'password1234'}
-  
-    // if req.body has exact key/value pairs to match the model, you can just use `req.body` instead
+    // Access to User model to update a user
     User.update(req.body, {
-        individualHooks: true,
-        where: {
-            id: req.params.id
-        }
+        individualHooks: true
+       ,where: { id: req.params.id }
     })
     .then(dbUserData => {
         if (!dbUserData[0]) {
@@ -132,13 +134,11 @@ router.put('/:id', withAuth, (req, res) => {
         res.status(500).json(err);
     });
 });
-
-// DELETE /api/users/1
-router.delete('/:id', withAuth, (req, res) => {
+// Route to delete a user
+router.delete('/:id', (req, res) => {
+    // Access to User model to delete a user
     User.destroy({
-        where: {
-            id: req.params.id
-        }
+        where: { id: req.params.id }
     })
     .then(dbUserData => {
         if (!dbUserData) {
@@ -152,4 +152,5 @@ router.delete('/:id', withAuth, (req, res) => {
         res.status(500).json(err);
     });
 });
+// Export module router
 module.exports = router;
