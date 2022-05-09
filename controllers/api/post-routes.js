@@ -15,13 +15,21 @@ const { Post, User, Comment } = require('../../models');
 router.get('/', (req, res) => {
     // Access to Post model to get all posts
     Post.findAll({
-        //attributes: ['id', 'post_url', 'title', 'created_at', [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']],
-        order: [['created_at', 'DESC']]
+        attributes: ['id'
+                    ,'title'
+                    ,'content_post'
+                    ,'created_at'
+        ]
+       ,order: [['created_at', 'DESC']]
         // JOIN to Post and Comment to get their fields
        ,include: [
             {
                 model: Comment
-               ,attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at']
+               ,attributes: ['id'
+                            ,'comment_text'
+                            ,'post_id'
+                            ,'user_id'
+                            ,'created_at']
                ,include: {
                     model: User
                    ,attributes: ['username']
@@ -46,11 +54,19 @@ router.get('/:id', (req, res) => {
         where: {
             id: req.params.id
         }
-        //attributes: ['id', 'post_url', 'title', 'created_at', [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']],
+       ,attributes: ['id'
+                    ,'title'
+                    ,'content_post'
+                    ,'created_at'
+        ]
        ,include: [
             {
                 model: Comment
-               ,attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at']
+               ,attributes: ['id'
+                            ,'comment_text'
+                            ,'post_id'
+                            ,'user_id'
+                            ,'created_at']
                ,include: {
                     model: User
                    ,attributes: ['username']

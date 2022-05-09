@@ -3,11 +3,11 @@
 /* File     : user-routes.js */
 /* Author   : Vicente Garcia */
 /* Date     : 05/06/2022     */
-/* Modified : 05/06/2022     */
+/* Modified : 05/09/2022     */
 /* ------------------------- */
 // Access to router module
 const router = require('express').Router();
-// Access to helpers
+// Access to helper authorization
 const withAuth = require('../../utils/auth');
 // Access to Post, User and Comment models
 const { User, Post, Comment } = require('../../models');
@@ -32,11 +32,16 @@ router.get('/:id', (req, res) => {
         // JOIN to Post and Comment to get their fields
        ,include: [{
             model: Post
-           ,attributes: ['id', 'title', 'content_post', 'created_at']
+           ,attributes: ['id'
+                        ,'title'
+                        ,'content_post'
+                        ,'created_at']
         },
         {
             model: Comment
-           ,attributes: ['id', 'comment_text', 'created_at']
+           ,attributes: ['id'
+                        ,'comment_text'
+                        ,'created_at']
            ,include: {
                 model: Post
                ,attributes: ['title']
@@ -58,7 +63,7 @@ router.get('/:id', (req, res) => {
 });
 
 // Route to add a user
-router.post('/', withAuth, (req, res) => {
+router.post('/', (req, res) => {
     // Access to User model to create a user
     User.create({
         username: req.body.username
@@ -66,7 +71,8 @@ router.post('/', withAuth, (req, res) => {
     })
     .then(dbUserData => {
         req.session.save(() => {
-            req.session.user_id = dbUserData.id;
+            // Declare session variables
+            req.session.user_id  = dbUserData.id;
             req.session.username = dbUserData.username;
             req.session.loggedIn = true;
             res.json(dbUserData);
@@ -96,7 +102,7 @@ router.post('/login', (req, res) => {
         }
         req.session.save(() => {
             // Declare session variables
-            req.session.user_id = dbUserData.id;
+            req.session.user_id  = dbUserData.id;
             req.session.username = dbUserData.username;
             req.session.loggedIn = true;
             res.json({ user: dbUserData, message: 'You are now logged in!' });

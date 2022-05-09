@@ -20,18 +20,20 @@ router.get('/', withAuth, (req, res) => {
         where: {
             user_id: req.session.user_id
         }
-       /*,attributes: [
-            'id',
-            'post_url',
-            'title',
-            'created_at',
-            [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
-        ],*/
+       ,attributes: ['id'
+                    ,'title'
+                    ,'content_post'
+                    ,'created_at'
+        ]
         // JOIN to Comment and User to get their fields
        ,include: [
             {
                 model: Comment
-               ,attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at']
+               ,attributes: ['id'
+                            ,'comment_text'
+                            ,'post_id'
+                            ,'user_id'
+                            ,'created_at']
                ,include: {
                     model: User
                    ,attributes: ['username']
@@ -58,18 +60,20 @@ router.get('/edit/:id', withAuth, (req, res) => {
     // Access to Post model to get a posts by id
     Post.findOne({
         where: { id: req.params.id}
-       /*,attributes: [
-            'id',
-            'post_url',
-            'title',
-            'created_at',
-            [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
-        ],*/
+       ,attributes: ['id'
+                    ,'title'
+                    ,'content_post'
+                    ,'created_at'
+        ]
         // JOIN to Comment and User to get their fields
        ,include: [
             {
                 model: Comment
-               ,attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at']
+               ,attributes: ['id'
+                            ,'comment_text'
+                            ,'post_id'
+                            ,'user_id'
+                            ,'created_at']
                ,include: {
                     model: User
                    ,attributes: ['username']
