@@ -3,7 +3,7 @@
 /* File     : dashboard-routes.js */
 /* Author   : Vicente Garcia      */
 /* Date     : 05/06/2022          */
-/* Modified : 05/06/2022          */
+/* Modified : 05/10/2022          */
 /* ------------------------------ */
 // Access to router module
 const router = require('express').Router();
@@ -54,6 +54,10 @@ router.get('/', withAuth, (req, res) => {
         console.log(err);
         res.status(500).json(err);
     });
+});
+// Route to get create post page
+router.get('/create', withAuth, (req, res) => {
+    res.render('create-post');
 });
 // Route to get post by id to edit
 router.get('/edit/:id', withAuth, (req, res) => {

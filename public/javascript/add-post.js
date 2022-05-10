@@ -3,14 +3,14 @@
 /* File     : add-posts.js   */
 /* Author   : Vicente Garcia */
 /* Date     : 05/06/2022     */
-/* Modified : 05/09/2022     */
+/* Modified : 05/10/2022     */
 /* ------------------------- */
 // Funtion to create a new post
 async function newFormHandler(event) {
     // Prevent the default behavior (refresh)
     event.preventDefault();
-    // Declare variables to grt value from page
-    const title = document.querySelector('input[name="post-title"]').value;
+    // Declare variables to get value from page
+    const title        = document.querySelector('input[name="post-title"]').value;
     const content_post = document.querySelector('textarea[name="post-content"]').value;
     // Call to post route to add new post
     const response = await fetch(`/api/posts`, {

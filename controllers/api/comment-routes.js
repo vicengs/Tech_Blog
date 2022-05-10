@@ -3,7 +3,7 @@
 /* File     : comment-routes.js */
 /* Author   : Vicente Garcia    */
 /* Date     : 05/06/2022        */
-/* Modified : 05/06/2022        */
+/* Modified : 05/09/2022        */
 /* ---------------------------- */
 // Access to router module
 const router = require('express').Router();
@@ -15,7 +15,9 @@ const { Comment, User, Post } = require('../../models');
 router.get('/', (req, res) => {
     // Access to Comment model to get all comments
     Comment.findAll({
-        attributes: ['id', 'comment_text', 'created_at']
+        attributes: ['id'
+                    ,'comment_text'
+                    ,'created_at']
        ,order: [['created_at', 'DESC']]
        ,include: [
             {

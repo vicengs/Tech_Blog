@@ -1,3 +1,12 @@
+<!-- ******************************* -->
+<!-- Project  : Tech Blog            -->
+<!-- File     : edit-post.handlebars -->
+<!-- Desc     : Section page to edit -->
+<!--            a post               -->
+<!-- Author   : Vicente Garcia       -->
+<!-- Date     : 05/06/2022           -->
+<!-- Modified : 05/10/2022           -->
+<!-- ******************************* -->
 <article>
   <a href="/dashboard"> &larr; Back to dashboard</a>
   <h2>
@@ -5,11 +14,15 @@
   </h2>
   <form class="edit-post-form">
     <div>
+      <label for="title">Title</label>
       <input name="post-title" type="text" value="{{post.title}}" />
-      <span>({{post.content_post}})</span>
     </div>
     <div>
-      <!--{{post.vote_count}} {{format_plural "point" post.vote_count}}--> by you on {{format_date post.created_at}}
+      <label for="content">Content</label>
+      <textarea id="post-content" name="post-content">{{post.content_post}}</textarea>
+    </div>
+    <div>
+      by you on {{format_date post.created_at}}
       |
       <a href="/post/{{post.id}}">{{post.comments.length}} {{format_plural "comment" post.comments.length}}</a>
     </div>

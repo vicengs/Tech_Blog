@@ -3,7 +3,7 @@
 /* File     : home-routes.js */
 /* Author   : Vicente Garcia */
 /* Date     : 05/06/2022     */
-/* Modified : 05/06/2022     */
+/* Modified : 05/09/2022     */
 /* ------------------------- */
 // Access to router module
 const router = require('express').Router();
@@ -58,14 +58,22 @@ router.get('/login', (req, res) => {
     }
     res.render('login');
 });
+// Route to get sign up page
+router.get('/signup', (req, res) => {
+    if (req.session.loggedIn) {
+        res.redirect('/');
+        return;
+    }
+    res.render('signup');
+});
 // Route to get a post by id
 router.get('/post/:id', (req, res) => {
     // Access to Post model to get a posts by id
     Post.findOne({
         where: { id: req.params.id}
        ,attributes: ['id'
-                    ,'post_url'
                     ,'title'
+                    ,'content_post'
                     ,'created_at'
         ]
         // JOIN to Comment and User to get their fields
