@@ -1,178 +1,200 @@
 * {
-    box-sizing: border-box;
+    --primary: #ccdad1;
+    --secondary: #9caea9;
+    --tertiary: #788585;
+    --light-dark: #6f6866;
+    --dark: #38302e;
+    --border-radius: .3rem;
   }
-  
-  body, html {
-    height: 100%;
-    padding: 0;
-    margin: 0;
-    font-family: sans-serif;
-    color: #333;
-  }
-  
-  a {
-    text-decoration: none;
-    color: #225ca3;
-    font-weight: bold;
-    transition: color .1s;
-  }
-  
-  a:hover {
-    color: #3486eb;
-  }
-  
-  button {
-    background-color: #225ca3;
-    border: 0;
-    padding: 1%;
-    color: white;
-    font-weight: bold;
-    transition: background-color .1s;
-    cursor: pointer;
-    border-radius: 5px;
-  }
-  
-  button:hover {
-    background-color: #3486eb;
-  }
-  
-  .post-list {
-    margin: 0;
-    padding: 0;
-  }
-  
-  textarea, input {
-    padding: .5%;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-  }
-  
-  textarea:focus, input:focus {
-    outline: none;
-    border: 1px solid #3486eb;
-  }
-  
-  textarea {
-    min-width: 40%;
-    min-height: 100px;
-  }
-  
-  form > div {
-    margin-bottom: 2%;
-  }
-  
-  form label {
-    display: block;
-  }
-  
-  .wrapper {
-    width: 100%;
-    min-height: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  header {
-    border-bottom: 1px solid #ccc;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 1%;
-  }
-  
-  header h1 {
-    font-size: 1em;
-  }
-  
-  main {
-    flex: 1;
-    padding: 2% 4%;
-  }
-  
-  .btn-no-style {
-    background: none;
-    border: none;
-    padding: 0;
-    cursor: pointer;
-    text-decoration: none;
-    color: #225ca3;
-    font-size: 100%;
-    font-weight: bold;
-    transition: color .1s;
-    margin-left: 16px;
-  }
-  
-  .btn-no-style:hover {
-    background: none;
-    color: #3486eb;
-  }
-  
-  .delete-post-btn {
-    background-color: #d41414;
-  }
-  
-  .delete-post-btn:hover {
-    background-color: #ff643d;
-  }
-  
-  .post {
-    margin-bottom: 2%;
-    line-height: 150%;
-  }
-  
-  .post .title span {
-    font-style: italic;
-    font-size: 90%;
-    color: #7d7d7d;
-  }
-  
-  .edit-link {
-    display: block;
-    margin: -1.5% 0 2% 0;
-  }
-  
-  .upvote-btn {
-    background-color: #197d0f;
-    transition: background-color .1s;
-  }
-  
-  .upvote-btn:hover {
-    background-color: #1f9c13;
-  }
-  
-  .comment-form {
-    margin-bottom: 5%;
-  }
-  
-  .comment {
-    padding: 1%;
-    margin-bottom: 1%;
-  }
-  
-  .comment:nth-child(odd) {
-    background-color: #fff5eb;
-  }
-  
-  .comment .meta {
-    font-size: 90%;
-    margin-bottom: .5%;
-    opacity: .6;
-  }
-  
-  .new-post-form input {
-    width: 300px;
-  }
-  
-  .edit-post-form {
-    margin-bottom: 5%;
-  }
-  
-  footer {
-    border-top: 1px solid #ccc;
-    display: flex;
-    justify-content: center;
-    padding: 1%;
-    font-size: 110%;
-  }
+body, html {
+  height: 100%;
+  font-family: 'Press Start 2P';
+  color: var(--light-dark);
+  background-color: var(--primary);
+}
+a {
+  text-decoration: none;
+  color: var(--primary);
+  padding-right: 20px;
+}
+a:hover {
+  color: var(--secondary);
+  text-decoration: none;
+}
+.hero {
+  font-family: 'Graduate';
+  padding: 1% 4%;
+  background-color: var(--dark);
+}
+.btn-no-style {
+  background: none;
+  padding: 0;
+  cursor: pointer;
+  color: var(--primary);
+}
+.btn-no-style:hover {
+  background: none;
+  color: var(--secondary);
+}
+.app-title {
+  font-family: 'Graduate';
+  font-size: 40px;
+  font-weight: bolder;
+  background-color: var(--primary);
+  color: var(--dark);
+  padding: 10px 20px;
+  border-radius: var(--border-radius);
+  box-shadow: 6px 5px var(--light-dark);
+  margin-top: 15px;
+}
+.section-title {
+  font-family: 'Graduate';
+  background-color: var(--primary);
+  color: var(--dark);
+  font-weight: bolder;
+}
+
+
+
+button {
+  background-color: #225ca3;
+  border: 0;
+  padding: 1%;
+  color: white;
+  font-weight: bold;
+  transition: .1s;
+  cursor: pointer;
+  border-radius: 5px;
+}
+button:hover {
+  background-color: #3486eb;
+}
+
+
+.card {
+  margin: 0 0 20px 0;
+  border: 3px solid var(--dark);
+}
+.card-header {
+  color: var(--primary);
+  background-color: var(--dark);
+  padding: 1%;
+}
+.card-body {
+  padding: 1%;
+}
+.title {
+  display: inline-block;
+}
+.post-title {
+  font-size:larger;
+}
+.post-by {
+  font-size: small;
+}
+
+.post-list {
+  margin: 0;
+  padding: 0;
+}
+
+textarea, input {
+  padding: .5%;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+textarea:focus, input:focus {
+  outline: none;
+  border: 1px solid #3486eb;
+}
+
+textarea {
+  min-width: 40%;
+  min-height: 100px;
+}
+
+form > div {
+  margin-bottom: 2%;
+}
+
+form label {
+  display: block;
+}
+
+.wrappers {
+  width: 100%;
+  min-height: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  border-bottom: 1px solid #ccc;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1%;
+}
+
+header h1 {
+  font-size: 1em;
+}
+
+main {
+  flex: 1;
+  padding: 1% 4%;
+}
+
+.delete-post-btn {
+  background-color: #d41414;
+}
+
+.delete-post-btn:hover {
+  background-color: #ff643d;
+}
+
+.post {
+  margin-bottom: 2%;
+  line-height: 150%;
+}
+
+.post .title span {
+  font-style: italic;
+  font-size: 90%;
+  color: #7d7d7d;
+}
+
+.edit-link {
+  display: block;
+  margin: -1.5% 0 2% 0;
+}
+
+.comment-form {
+  margin-bottom: 5%;
+}
+
+.comment {
+  padding: 1%;
+  margin-bottom: 1%;
+}
+
+.comment:nth-child(odd) {
+  background-color: #fff5eb;
+}
+
+.comment .meta {
+  font-size: 90%;
+  margin-bottom: .5%;
+  opacity: .6;
+}
+
+.new-post-form input {
+  width: 300px;
+}
+
+.edit-post-form {
+  margin-bottom: 5%;
+}

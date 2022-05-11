@@ -4,7 +4,7 @@
 <!-- Desc     : Main page       -->
 <!-- Author   : Vicente Garcia  -->
 <!-- Date     : 05/06/2022      -->
-<!-- Modified : 05/10/2022      -->
+<!-- Modified : 05/11/2022      -->
 <!-- ************************** -->
 <!DOCTYPE html>
 <html lang="en">
@@ -12,30 +12,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tech Blog</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Graduate&family=Press+Start+2P&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/stylesheets/style.css">
   </head>
   <body>
-    <div class="wrapper">
-      <header>
-        <h1>
-          <a href="/">Home</a>
-        </h1>
-        <nav>
-          {{#if loggedIn}}
-            <a href="/dashboard">dashboard</a>
-            <button id="logout" class="btn-no-style">logout</button>
-          {{else}}
-            <a href="/login">login</a>
-          {{/if}}
-        </nav>
-      </header>
-      <main>
-        {{{ body }}}
-      </main>
-      <!--<footer>
-        Thanks for visiting!
-      </footer>-->
-    </div>
+    <header class="hero">
+      <div>
+      <nav>
+        <a href="/">Home</a>
+        {{#if loggedIn}}
+          <a href="/dashboard">Dashboard</a>
+          <button id="logout" class="btn-no-style">Logout</button>
+        {{else}}
+          <a href="/login">Login</a>
+        {{/if}}
+      </nav>
+      <h1 class="app-title">The Tech Blog</h1>
+      </div>
+    </header>
+    <main>
+      {{{ body }}}
+    </main>
     {{#if loggedIn}}
       <script src="/javascript/logout.js"></script>
     {{/if}}

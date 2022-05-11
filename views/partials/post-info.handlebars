@@ -8,13 +8,14 @@
 <!-- Date     : 05/06/2022           -->
 <!-- Modified : 05/10/2022           -->
 <!-- ******************************* -->
-<article class="post">
-  <div class="title">
-    <a href="/post/{{id}}">{{title}} ({{comments.length}} {{format_plural "comment" comments.length}})</a> posted by {{user.username}} on {{format_date created_at}}
+<div class="card">
+  <div class="card-header">
+    <div class="d-flex justify-content-between">
+      <div class="post-title"><a href="/post/{{id}}">{{title}}</a></div>
+      <div class="post-by pt-1">Posted by {{user.username}} on {{format_date created_at}}</div>
+    </div>
   </div>
-  <div class="meta">
+  <div class="card-body">
     {{content_post}}
-    <!--|
-    <a href="/post/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a>-->
   </div>
-</article>
+</div>
