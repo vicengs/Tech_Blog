@@ -5,7 +5,7 @@
 <!--            a post               -->
 <!-- Author   : Vicente Garcia       -->
 <!-- Date     : 05/06/2022           -->
-<!-- Modified : 05/10/2022           -->
+<!-- Modified : 05/11/2022           -->
 <!-- ******************************* -->
 <article>
   <a href="/dashboard"> &larr; Back to dashboard</a>
@@ -26,11 +26,11 @@
       |
       <a href="/post/{{post.id}}">{{post.comments.length}} {{format_plural "comment" post.comments.length}}</a>
     </div>
-    <button type="submit">Save post</button>
-    <button type="button" class="delete-post-btn">Delete post</button>
+    <button type="submit">Update Post</button>
+    <button type="button" class="delete-post-btn">Delete</button>
   </form>
 </article>
-<form class="comment-form">
+<!--<form class="comment-form">
   <div>
     <textarea name="comment-body"></textarea>
   </div>
@@ -39,7 +39,7 @@
     <button type="submit">add comment</button>
   </div>
 </form>
-{{> comments post.comments}}
+{ { > comments post.comments } }-->
 <script src="/javascript/edit-post.js"></script>
 <script src="/javascript/delete-post.js"></script>
-<script src="/javascript/comment.js"></script>
+<!--<script src="/javascript/comment.js"></script>-->

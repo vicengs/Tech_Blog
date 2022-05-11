@@ -57,7 +57,7 @@ router.get('/', withAuth, (req, res) => {
 });
 // Route to get create post page
 router.get('/create', withAuth, (req, res) => {
-    res.render('create-post');
+    res.render('create-post', { loggedIn: true });
 });
 // Route to get post by id to edit
 router.get('/edit/:id', withAuth, (req, res) => {

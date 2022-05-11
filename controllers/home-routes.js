@@ -74,8 +74,7 @@ router.get('/post/:id', (req, res) => {
        ,attributes: ['id'
                     ,'title'
                     ,'content_post'
-                    ,'created_at'
-        ]
+                    ,'created_at']
         // JOIN to Comment and User to get their fields
        ,include: [
             {
@@ -95,6 +94,7 @@ router.get('/post/:id', (req, res) => {
                 ,attributes: ['username']
             }
         ]
+        ,order: [[Comment, 'created_at', 'DESC']]
     })
     .then(dbPostData => {
         if (!dbPostData) {

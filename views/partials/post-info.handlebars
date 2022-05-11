@@ -10,11 +10,11 @@
 <!-- ******************************* -->
 <article class="post">
   <div class="title">
-    {{title}} posted by {{user.username}} on {{format_date created_at}}
+    <a href="/post/{{id}}">{{title}} ({{comments.length}} {{format_plural "comment" comments.length}})</a> posted by {{user.username}} on {{format_date created_at}}
   </div>
   <div class="meta">
     {{content_post}}
-    |
-    <a href="/post/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a>
+    <!--|
+    <a href="/post/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a>-->
   </div>
 </article>
