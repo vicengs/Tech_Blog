@@ -7,19 +7,19 @@
 <!-- Date     : 05/06/2022             -->
 <!-- Modified : 05/12/2022             -->
 <!-- ********************************* -->
-<div class="d-flex justify-content-center"></div>
+<div class="d-flex justify-content-center">
     <form class="new-post-form">
-      <div class="card card-create">
+      <div class="card">
         <h3 class="card-header">Create New Post</h3>
         <div class="card-body">
           <div class="card-title">
             <label for="post-title">Title</label>
           </div>
-          <input type="text" id="post-title" name="post-title" />
+          <input name="post-title" type="text" id="post-title" maxlength="80" />
           <div class="card-title">
             <label for="post-content">Content</label>
           </div>
-          <textarea id="post-content" name="post-content"></textarea>
+          <textarea id="post-content" name="post-content" maxlength="250"></textarea>
           <div class="d-flex justify-content-center pt-3 pb-2">
             <button type="submit" class="btn-create">Create</button>
           </div>
