@@ -111,7 +111,6 @@ input {
 button {
   font-family: 'Graduate';
   background-color: var(--tertiary);
-  /*width: 100%;*/
   border: 0;
   padding: 1%;
   color: white;
@@ -126,9 +125,14 @@ button:hover {
 .btn-auth {
   width: 32%;
 }
-
-
-
+.btn-post {
+  width: 15%;
+}
+.post-dash {
+  font-family: 'Press Start 2P';
+  width: 100%;
+  font-size: 115%;
+}
 
 
 
@@ -174,19 +178,19 @@ header h1 {
 .delete-post-btn:hover {
   background-color: #ff643d;
 }
-.post {
+/*.post {
   margin-bottom: 2%;
   line-height: 150%;
-}
-.post .title span {
+}*/
+/*.post .title span {
   font-style: italic;
   font-size: 90%;
   color: #7d7d7d;
-}
-.edit-link {
+}*/
+/*.edit-link {
   display: block;
   margin: -1.5% 0 2% 0;
-}
+}*/
 .comment-form {
   margin-bottom: 5%;
 }
@@ -202,6 +206,7 @@ header h1 {
   margin-bottom: .5%;
   opacity: .6;
 }
+
 .new-post-form input {
   width: 300px;
 }
