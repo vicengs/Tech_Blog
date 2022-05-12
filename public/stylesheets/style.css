@@ -155,7 +155,6 @@ button:hover {
 .delete-post-btn:hover {
   background-color: #ff643d;
 }
-
 .edit-post-form, .new-post-form {
   width: 50%;
 }
@@ -164,58 +163,14 @@ button:hover {
 }
 
 
-
-.post-list {
-  margin: 0;
-  padding: 0;
-}
-/*textarea, input {
-  padding: .5%;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-}*/
-
-/*textarea {
-  width: 100%;
-  font-family: 'Michroma', sans-serif;
-  min-width: 40%;
-  min-height: 100px;
-}*/
-form > div {
-  margin-bottom: 2%;
-}
 form label {
   display: block;
 }
-.wrappers {
-  width: 100%;
-  min-height: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-}
-
 header h1 {
   font-size: 1em;
 }
-
-
-/*.post {
+/*.comment-form {
   margin-bottom: 2%;
-  line-height: 150%;
-}*/
-/*.post .title span {
-  font-style: italic;
-  font-size: 90%;
-  color: #7d7d7d;
-}*/
-/*.edit-link {
-  display: block;
-  margin: -1.5% 0 2% 0;
-}*/
-.comment-form {
-  margin-bottom: 5%;
 }
 .comment {
   padding: 1%;
@@ -228,6 +183,6 @@ header h1 {
   font-size: 90%;
   margin-bottom: .5%;
   opacity: .6;
-}
+}*/
 
 

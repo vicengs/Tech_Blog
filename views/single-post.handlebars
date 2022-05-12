@@ -5,17 +5,22 @@
 <!--            post with its comments -->
 <!-- Author   : Vicente Garcia         -->
 <!-- Date     : 05/06/2022             -->
-<!-- Modified : 05/10/2022             -->
+<!-- Modified : 05/12/2022             -->
 <!-- ********************************* -->
+<h1 class="section-title mb-3 d-flex justify-content-start">Post</h1>
 {{> post-info post }}
 {{#if loggedIn}}
   <form class="comment-form">
-    <div>
-      <h2>Comment</h2>
-      <textarea name="comment-body"></textarea>
-    </div>
-    <div>
-      <button type="submit">Submit</button>
+    <div class="card">
+      <div class="card-body">
+        <div class="card-title">
+          <label for="comment-title">Comment</label>
+        </div>
+        <textarea name="comment-body" maxlength="250"></textarea>
+        <div class="d-flex justify-content-center pt-3 pb-2">
+          <button type="submit" class="btn-create">Add Comment</button>
+        </div>
+      </div>
     </div>
   </form>
 {{/if}}

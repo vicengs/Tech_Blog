@@ -9,14 +9,17 @@
 <!-- Modified : 05/10/2022           -->
 <!-- ******************************* -->
 <div class="comments">
-  {{#each this }}
-    <section class="comment">
-      <div class="meta">
-        {{user.username}} on {{format_date created_at}}
-      </div>
-      <div class="text">
+  <h1 class="section-title mb-3 d-flex justify-content-center">Comments</h1>
+  {{#each this}}
+    <div class="card">
+      <div class="card-body">
+        <div>
         {{comment_text}}
+        </div>
+        <div class="d-flex justify-content-end">
+          {{user.username}}, {{format_date created_at}}
+        </div>
       </div>
-    </section>
+    </div>
   {{/each }}
 </div>
