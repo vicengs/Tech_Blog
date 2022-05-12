@@ -12,22 +12,25 @@ async function newFormHandler(event) {
     // Declare variables to get value from page
     const title        = document.querySelector('input[name="post-title"]').value;
     const content_post = document.querySelector('textarea[name="post-content"]').value;
-    // Call to post route to add new post
-    const response = await fetch(`/api/posts`, {
-        method: 'POST',
-        body: JSON.stringify({
-            title
-           ,content_post
-        })
-       ,headers: {
-            'Content-Type': 'application/json'
-        }
-    });
-    // Check the response status
-    if (response.ok) {
-        document.location.replace('/dashboard');
-    } else {
-        alert(response.statusText);
+    // Validate no null values
+    if (title && content_post) {
+        // Call to post route to add new post
+        const response = await fetch(`/api/posts`, {
+            method: 'POST',
+            body: JSON.stringify({
+                title
+            ,content_post
+            })
+        ,headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+        // Check the response status
+        if (response.ok) {
+            document.location.replace('/dashboard');
+        } else {
+            alert(response.statusText);
+        };
     };
 };
 // Declare listener to execute click event for add new post

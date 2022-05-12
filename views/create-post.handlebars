@@ -5,20 +5,26 @@
 <!--            a new post             -->
 <!-- Author   : Vicente Garcia         -->
 <!-- Date     : 05/06/2022             -->
-<!-- Modified : 05/10/2022             -->
+<!-- Modified : 05/12/2022             -->
 <!-- ********************************* -->
-<section>
-  <h2>Create New Post</h2>
-  <form class="new-post-form">
-    <div>
-      <label for="post-title">Title</label>
-      <input type="text" id="post-title" name="post-title" />
-    </div>
-    <div>
-      <label for="post-content">Content</label>
-      <textarea id="post-content" name="post-content"></textarea>
-    </div>
-    <button type="submit" class="btn">Create</button>
-  </form>
-</section>
+<div class="d-flex justify-content-center"></div>
+    <form class="new-post-form">
+      <div class="card card-create">
+        <h3 class="card-header">Create New Post</h3>
+        <div class="card-body">
+          <div class="card-title">
+            <label for="post-title">Title</label>
+          </div>
+          <input type="text" id="post-title" name="post-title" />
+          <div class="card-title">
+            <label for="post-content">Content</label>
+          </div>
+          <textarea id="post-content" name="post-content"></textarea>
+          <div class="d-flex justify-content-center pt-3 pb-2">
+            <button type="submit" class="btn-create">Create</button>
+          </div>
+        </div>
+      </div>
+    </form>
+</div>
 <script src="/javascript/add-post.js"></script>

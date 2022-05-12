@@ -35,11 +35,29 @@ a:hover {
 h3 {
   font-family: 'Graduate';
 }
-input {
+textarea {
+  height: 100px;
+}
+input, textarea {
   font-family: 'Michroma', sans-serif;
   margin-right: 10px;
   padding: 2px 5px;
   width: 100%;
+  resize: none;
+}
+button {
+  font-family: 'Graduate';
+  background-color: var(--tertiary);
+  border: 0;
+  padding: 1%;
+  color: white;
+  font-weight: bold;
+  transition: .1s;
+  cursor: pointer;
+  border-radius: 5px;
+}
+button:hover {
+  background-color: #3486eb;
 }
 .hero {
   font-family: 'Graduate';
@@ -79,15 +97,16 @@ input {
 .post-by {
   font-size: small;
 }
-.auth-title {
+.card-title {
   font-family: 'Graduate';
   font-weight: bolder;
   color: var(--dark);
   margin-top: 15px;
 }
 .card {
-  margin: 0 0 20px 0;
-  border: 3px solid var(--dark);
+  margin: 0 0 1% 0;
+  box-shadow: 4px 8px 10px var(--light-dark);
+  /*border: 0px solid var(--dark);*/
 }
 .card-header {
   color: var(--primary);
@@ -108,30 +127,23 @@ input {
   padding-right: 0;
   padding-top: 1%;
 }
-button {
-  font-family: 'Graduate';
-  background-color: var(--tertiary);
-  border: 0;
-  padding: 1%;
-  color: white;
-  font-weight: bold;
-  transition: .1s;
-  cursor: pointer;
-  border-radius: 5px;
-}
-button:hover {
-  background-color: #3486eb;
-}
 .btn-auth {
   width: 32%;
 }
-.btn-post {
-  width: 15%;
+.btn-add {
+  width: 10%;
+  background-color: var(--dark);
+}
+.btn-create {
+  width: 100%;
 }
 .post-dash {
   font-family: 'Press Start 2P';
   width: 100%;
   font-size: 115%;
+}
+.card-create {
+  margin: 1% 20%;
 }
 
 
@@ -145,14 +157,13 @@ button:hover {
   border-radius: 5px;
   border: 1px solid #ccc;
 }*/
-textarea:focus, input:focus {
-  outline: none;
-  border: 1px solid #3486eb;
-}
-textarea {
+
+/*textarea {
+  width: 100%;
+  font-family: 'Michroma', sans-serif;
   min-width: 40%;
   min-height: 100px;
-}
+}*/
 form > div {
   margin-bottom: 2%;
 }
@@ -207,9 +218,7 @@ header h1 {
   opacity: .6;
 }
 
-.new-post-form input {
-  width: 300px;
-}
+
 .edit-post-form {
   margin-bottom: 5%;
 }
