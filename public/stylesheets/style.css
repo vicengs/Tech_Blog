@@ -5,7 +5,18 @@
     --light-dark: #6f6866;
     --dark: #38302e;
     --border-radius: .3rem;
-  }
+}
+header {
+  border-bottom: 1px solid #ccc;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1%;
+}
+main {
+  flex: 1;
+  padding: 1% 4%;
+}
 body, html {
   height: 100%;
   font-family: 'Press Start 2P';
@@ -20,6 +31,15 @@ a {
 a:hover {
   color: var(--secondary);
   text-decoration: none;
+}
+h3 {
+  font-family: 'Graduate';
+}
+input {
+  font-family: 'Michroma', sans-serif;
+  margin-right: 10px;
+  padding: 2px 5px;
+  width: 100%;
 }
 .hero {
   font-family: 'Graduate';
@@ -53,11 +73,45 @@ a:hover {
   color: var(--dark);
   font-weight: bolder;
 }
-
-
-
+.post-title {
+  font-size:larger;
+}
+.post-by {
+  font-size: small;
+}
+.auth-title {
+  font-family: 'Graduate';
+  font-weight: bolder;
+  color: var(--dark);
+  margin-top: 15px;
+}
+.card {
+  margin: 0 0 20px 0;
+  border: 3px solid var(--dark);
+}
+.card-header {
+  color: var(--primary);
+  background-color: var(--dark);
+  padding: 1%;
+  text-align: center;
+}
+.card-body {
+  padding: 1%;
+}
+.auth-body {
+  padding-left: 3%;
+  padding-right: 3%;
+}
+.link {
+  font-family: 'Graduate';
+  color: var(--tertiary);
+  padding-right: 0;
+  padding-top: 1%;
+}
 button {
-  background-color: #225ca3;
+  font-family: 'Graduate';
+  background-color: var(--tertiary);
+  /*width: 100%;*/
   border: 0;
   padding: 1%;
   color: white;
@@ -69,59 +123,38 @@ button {
 button:hover {
   background-color: #3486eb;
 }
+.btn-auth {
+  width: 32%;
+}
 
 
-.card {
-  margin: 0 0 20px 0;
-  border: 3px solid var(--dark);
-}
-.card-header {
-  color: var(--primary);
-  background-color: var(--dark);
-  padding: 1%;
-}
-.card-body {
-  padding: 1%;
-}
-.title {
-  display: inline-block;
-}
-.post-title {
-  font-size:larger;
-}
-.post-by {
-  font-size: small;
-}
+
+
+
 
 .post-list {
   margin: 0;
   padding: 0;
 }
-
-textarea, input {
+/*textarea, input {
   padding: .5%;
   border-radius: 5px;
   border: 1px solid #ccc;
-}
-
+}*/
 textarea:focus, input:focus {
   outline: none;
   border: 1px solid #3486eb;
 }
-
 textarea {
   min-width: 40%;
   min-height: 100px;
 }
-
 form > div {
   margin-bottom: 2%;
 }
-
 form label {
   display: block;
 }
-
 .wrappers {
   width: 100%;
   min-height: 100%;
@@ -131,70 +164,47 @@ form label {
   flex-direction: column;
 }
 
-header {
-  border-bottom: 1px solid #ccc;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 1%;
-}
-
 header h1 {
   font-size: 1em;
-}
-
-main {
-  flex: 1;
-  padding: 1% 4%;
 }
 
 .delete-post-btn {
   background-color: #d41414;
 }
-
 .delete-post-btn:hover {
   background-color: #ff643d;
 }
-
 .post {
   margin-bottom: 2%;
   line-height: 150%;
 }
-
 .post .title span {
   font-style: italic;
   font-size: 90%;
   color: #7d7d7d;
 }
-
 .edit-link {
   display: block;
   margin: -1.5% 0 2% 0;
 }
-
 .comment-form {
   margin-bottom: 5%;
 }
-
 .comment {
   padding: 1%;
   margin-bottom: 1%;
 }
-
 .comment:nth-child(odd) {
   background-color: #fff5eb;
 }
-
 .comment .meta {
   font-size: 90%;
   margin-bottom: .5%;
   opacity: .6;
 }
-
 .new-post-form input {
   width: 300px;
 }
-
 .edit-post-form {
   margin-bottom: 5%;
 }
