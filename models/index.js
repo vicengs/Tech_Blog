@@ -9,7 +9,6 @@
 const User = require('./User');
 // Access to Post model
 const Post = require('./Post');
-//const Vote = require('./Vote');
 // Access to Comment model
 const Comment = require('./Comment');
 // Create tables associations

@@ -1,6 +1,6 @@
 /* -------------------------- */
 /* Project  : Tech Blog       */
-/* File     : auth.js */
+/* File     : auth.js         */
 /* Author   : Vicente Garcia  */
 /* Date     : 05/06/2022      */
 /* Modified : 05/09/2022      */

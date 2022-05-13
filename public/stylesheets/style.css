@@ -1,13 +1,26 @@
+/* ------------------------- */
+/* Project  : Tech Blog      */
+/* File     : style.css      */
+/* Author   : Vicente Garcia */
+/* Date     : 05/06/2022     */
+/* Modified : 05/13/2022     */
+/* ------------------------- */
+/* Declare constants */
 * {
-    --primary: #ccdad1;
-    --secondary: #9caea9;
-    --tertiary: #788585;
-    --light-dark: #6f6866;
-    --dark: #38302e;
-    --border-radius: .3rem;
+  --background:  rgb(157, 173, 190);
+  --body: rgb(117, 130, 140);
+  --sky: rgb(89, 146, 190);
+  --main: rgb(132, 132, 132);
+  --clear: rgb(255, 255, 255);
+  --btn-ok: rgb(68, 128, 193);
+  --btn-over: rgb(85, 109, 147);
+  --btn-del: rgb(236, 53, 53);
+  --btn-del-over: rgb(212, 11, 11);
+  --over: rgb(246, 211, 96);
+  --border-radius: .9rem;
 }
+/* Style general page */
 header {
-  border-bottom: 1px solid #ccc;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -20,75 +33,49 @@ main {
 body, html {
   height: 100%;
   font-family: 'Press Start 2P';
-  color: var(--light-dark);
-  background-color: var(--primary);
+  color: var(--main);
+  background-color: var(--background);
 }
+/* Style links */
 a {
   text-decoration: none;
-  color: var(--primary);
+  color: var(--clear);
   padding-right: 20px;
+  font-size: larger;
 }
 a:hover {
-  color: var(--secondary);
+  color: var(--over);
   text-decoration: none;
 }
+.link {
+  font-family: 'Graduate';
+  color: var(--btn-ok);
+  padding-right: 0;
+  padding-top: 1%;
+}
+.link:hover {
+  color: var(--btn-over);
+  text-decoration: none;
+}
+/* Style titles */
 h3 {
   font-family: 'Graduate';
-}
-textarea {
-  height: 100px;
-}
-input, textarea {
-  font-family: 'Michroma', sans-serif;
-  margin-right: 10px;
-  padding: 2px 5px;
-  width: 100%;
-  resize: none;
-}
-button {
-  font-family: 'Graduate';
-  background-color: var(--tertiary);
-  border: 0;
-  padding: 1%;
-  color: white;
-  font-weight: bold;
-  transition: .1s;
-  cursor: pointer;
-  border-radius: 5px;
-}
-button:hover {
-  background-color: #3486eb;
-}
-.hero {
-  font-family: 'Graduate';
-  padding: 1% 4%;
-  background-color: var(--dark);
-}
-.btn-no-style {
-  background: none;
-  padding: 0;
-  cursor: pointer;
-  color: var(--primary);
-}
-.btn-no-style:hover {
-  background: none;
-  color: var(--secondary);
 }
 .app-title {
   font-family: 'Graduate';
   font-size: 40px;
   font-weight: bolder;
-  background-color: var(--primary);
-  color: var(--dark);
+  background-color: var(--background);
+  color: var(--clear);
   padding: 10px 20px;
   border-radius: var(--border-radius);
-  box-shadow: 6px 5px var(--light-dark);
+  box-shadow: 4px 5px 8px var(--btn-over);
   margin-top: 15px;
 }
 .section-title {
   font-family: 'Graduate';
-  background-color: var(--primary);
-  color: var(--dark);
+  background-color: var(--background);
+  color: var(--clear);
   font-weight: bolder;
 }
 .post-title {
@@ -97,28 +84,94 @@ button:hover {
 .post-by {
   font-size: small;
 }
+/* Style input and textarea */
+textarea {
+  height: 100px;
+}
+input, textarea {
+  font-family: 'Michroma', sans-serif;
+  color: var(--body);
+  margin-right: 10px;
+  padding: 2px 5px;
+  width: 100%;
+  resize: none;
+}
+/* Style hero */
+.hero {
+  font-family: 'Graduate';
+  padding: 1% 4%;
+  background-color: var(--sky);
+}
+/* Style buttons */
+button {
+  font-family: 'Graduate';
+  background-color: var(--btn-ok);
+  border: 0;
+  padding: 1%;
+  color: var(--clear);
+  font-weight: bold;
+  transition: .1s;
+  cursor: pointer;
+  border-radius: 5px;
+}
+button:hover {
+  background-color: var(--btn-over);
+}
+.btn-logout {
+  background: none;
+  padding: 0;
+  cursor: pointer;
+  color: var(--clear);
+  font-size: larger;
+}
+.btn-logout:hover {
+  background: none;
+  color: var(--over);
+}
+.btn-auth {
+  width: 32%;
+}
+.btn-add {
+  width: 10%;
+  background-color: var(--btn-over);
+  box-shadow: 4px 6px 8px var(--main);
+}
+.btn-add:hover {
+  color: var(--over);
+  box-shadow: 2px 3px 4px var(--main);
+}
+.btn-create {
+  width: 100%;
+}
+.delete-post-btn {
+  width: 100%;
+  background-color: var(--btn-del);
+}
+.delete-post-btn:hover {
+  background-color: var(--btn-del-over);
+}
+/* Style cards */
 .card {
   margin: 0 0 1% 0;
-  box-shadow: 4px 8px 10px var(--light-dark);
+  box-shadow: 4px 8px 10px var(--main);
 }
 .card-header {
-  color: var(--primary);
-  background-color: var(--dark);
+  color: var(--clear);
+  background-color: var(--sky);
   padding: 1%;
   text-align: center;
 }
 .card-title {
   font-family: 'Graduate';
   font-weight: bolder;
-  color: var(--dark);
+  color: var(--body);
   margin-top: 15px;
 }
 .card-body {
   padding: 1%;
+  background-color: var(--clear);
 }
-.card-creates {
-  margin: 1% 20%;
-}
+/* Space body cards */
 .auth-body {
   padding-left: 3%;
   padding-right: 3%;
@@ -127,33 +180,9 @@ button:hover {
   padding-left: 2%;
   padding-right: 2%;
 }
-.link {
-  font-family: 'Graduate';
-  color: var(--tertiary);
-  padding-right: 0;
-  padding-top: 1%;
-}
-.btn-auth {
-  width: 32%;
-}
-.btn-add {
-  width: 10%;
-  background-color: var(--dark);
-}
-.btn-create {
-  width: 100%;
-}
-.post-dash {
-  font-family: 'Press Start 2P';
-  width: 100%;
-  font-size: 115%;
-}
-.delete-post-btn {
-  width: 100%;
-  background-color: #d41414;
-}
-.delete-post-btn:hover {
-  background-color: #ff643d;
+/* Size forms */
+form label {
+  display: block;
 }
 .edit-post-form, .new-post-form {
   width: 50%;
@@ -161,28 +190,14 @@ button:hover {
 .login-form, .signup-form{
   width: 23%;
 }
-
-
-form label {
-  display: block;
+/* Style post links */
+.post-dash {
+  font-family: 'Press Start 2P';
+  width: 100%;
+  font-size: 115%;
+  background-color: var(--sky);
+  box-shadow: 2px 4px 4px var(--main);
 }
-header h1 {
-  font-size: 1em;
+.post-dash:hover {
+  box-shadow: 1px 2px 2px var(--main);
 }
-/*.comment-form {
-  margin-bottom: 2%;
-}
-.comment {
-  padding: 1%;
-  margin-bottom: 1%;
-}
-.comment:nth-child(odd) {
-  background-color: #fff5eb;
-}
-.comment .meta {
-  font-size: 90%;
-  margin-bottom: .5%;
-  opacity: .6;
-}*/
-
-

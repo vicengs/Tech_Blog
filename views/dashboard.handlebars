@@ -11,7 +11,7 @@
   <section>
     <h1 class="section-title mb-3 d-flex justify-content-end">Your Dashboard</h1>
       {{#each posts as |post|}}
-        <button class="post-dash d-flex justify-content-between mb-2"><div><a href="/dashboard/edit/{{post.id}}">{{title}}</div><div>{{format_date created_at}}</div></a></button>
+        <a href="/dashboard/edit/{{post.id}}"><button class="post-dash d-flex justify-content-between"><div>{{title}}</div><div>{{format_date created_at}}</div></button></a>
       {{/each}}
   </section>
 {{/if}}

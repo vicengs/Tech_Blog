@@ -3,7 +3,7 @@
 /* File     : comment.js     */
 /* Author   : Vicente Garcia */
 /* Date     : 05/06/2022     */
-/* Modified : 05/09/2022     */
+/* Modified : 05/13/2022     */
 /* ------------------------- */
 // Function to add a comment
 async function commentFormHandler(event) {
@@ -12,8 +12,7 @@ async function commentFormHandler(event) {
     // Declare variables to get value from page
     const comment_text = document.querySelector('textarea[name="comment-body"]').value.trim();
     const post_id = window.location.toString().split('/')[
-        window.location.toString().split('/').length - 1
-    ];
+                    window.location.toString().split('/').length - 1];
     // If comment is not null then save and redirect to comments
     if (comment_text) {
         const response = await fetch('/api/comments', {
@@ -34,5 +33,15 @@ async function commentFormHandler(event) {
         };
     };
 };
+// Function to reload comments to get the most recents
+function getRecentComments() {
+    setInterval(function(){
+        if (!document.querySelector('textarea[name="comment-body"]').value.trim()){
+            document.location.reload();
+        };
+    }, 10000);
+};
+// Call function to begin, first getting the current day and time
+getRecentComments();
 // Declare listener to execute click event for add new post
 document.querySelector('.comment-form').addEventListener('submit', commentFormHandler);

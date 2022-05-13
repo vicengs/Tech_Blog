@@ -21,7 +21,7 @@ async function deleteFormHandler(event) {
     if (response.ok) {
         document.location.replace('/dashboard/')
     } else {
-        alert(response.statusText);
+        alert("You can't delete post that already have comment(s)");
     }
 }
 // Declare listener to execute click event for delete a post

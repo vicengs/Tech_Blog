@@ -11,6 +11,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Tech Blog</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css"/>
     <link href="https://fonts.googleapis.com/css2?family=Graduate&family=Michroma&family=Press+Start+2P&display=swap" rel="stylesheet">
@@ -23,9 +24,10 @@
         <a href="/">Home</a>
         {{#if loggedIn}}
           <a href="/dashboard">Dashboard</a>
-          <button id="logout" class="btn-no-style">Logout</button>
+          <button id="logout" class="btn-logout">Logout</button>
         {{else}}
           <a href="/login">Login</a>
+          <a href="/signup">Sign Up</a>
         {{/if}}
       </nav>
       <h1 class="app-title">The Tech Blog</h1>
