@@ -39,7 +39,7 @@ Open Heroku link to view the deployed project.
 
 ## Live application
 
-********** Heroku link **********
+https://immense-scrubland-37452.herokuapp.com/
 
 ## Contributing
 
@@ -47,7 +47,7 @@ In short, when you submit code changes, your submissions are understood to be un
 
 ## Tests
 
-************ Check the jest test **********
+Validate helpers running the follow command "run test".
 
 ## Credits
 
@@ -79,3 +79,4 @@ MIT License - A short and simple permissive license with conditions only requiri
     
 ![Server](/assets/images/server.jpg)
 ![Application](/assets/images/application.jpg)
+![Login](/assets/images/login.jpg)
