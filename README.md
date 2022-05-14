@@ -78,5 +78,6 @@ MIT License - A short and simple permissive license with conditions only requiri
 ## Screenshots
     
 ![Server](/assets/images/server.jpg)
-![Application](/assets/images/application.jpg)
 ![Login](/assets/images/login.jpg)
+![Application](/assets/images/application.jpg)
+![Comments](/assets/images/comments.jpg)
